@@ -24,6 +24,20 @@
   height: 45px;
 }
 
+.profile-pets__avatar {
+  margin: 30px 0;
+  align-self: center;
+}
+
+.profile-pets__container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* width: 100%; */
+}
+
+
 .search-pair__cardGrid {
   display: flex;
   justify-content: flex-end;
