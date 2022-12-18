@@ -53,6 +53,7 @@ import {
   DatePicker,
   Counter,
   Title,
+  Image,
   email,
   onChange,
   Badge,
@@ -87,6 +88,9 @@ import {
   Icon24Camera,
   Icon12Add,
   Icon16Clear,
+  Icon28PawOutline,
+  Icon28GiftOutline,
+  Icon28SearchLikeFilledOutline,
 } from '@vkontakte/icons'
 import '@vkontakte/vkui/dist/vkui.css'
 
@@ -297,7 +301,7 @@ const Example = () => {
                         }
                         data-story='myPets'
                         onClick={onStoryChange}
-                        before={<Icon28NewsfeedOutline />}
+                        before={<Icon28PawOutline />}
                       >
                         Мои питомцы
                       </Cell>
@@ -331,9 +335,27 @@ const Example = () => {
                         }
                         data-story='searchPair'
                         onClick={onStoryChange}
-                        before={<Icon28ServicesOutline />}
+                        before={<Icon28SearchLikeFilledOutline />}
                       >
                         Найти пару
+                      </Cell>
+
+                      <Cell
+                        disabled={activeStory === 'achievements'}
+                        style={
+                          activeStory === 'achievements'
+                            ? {
+                                backgroundColor:
+                                  'var(--vkui--color_background_secondary)',
+                                borderRadius: 8,
+                              }
+                            : {}
+                        }
+                        data-story='achievements'
+                        onClick={onStoryChange}
+                        before={<Icon28GiftOutline />}
+                      >
+                        Достижения
                       </Cell>
                     </Group>
                   </Panel>
@@ -357,7 +379,7 @@ const Example = () => {
                           data-story='myPets'
                           text='Мои питомцы'
                         >
-                          <Icon28NewsfeedOutline />
+                          <Icon28PawOutline />
                         </TabbarItem>
                         <TabbarItem
                           onClick={onStoryChange}
@@ -365,7 +387,15 @@ const Example = () => {
                           data-story='searchPair'
                           text='Найти пару'
                         >
-                          <Icon28ServicesOutline />
+                          <Icon28SearchLikeFilledOutline />
+                        </TabbarItem>
+                        <TabbarItem
+                          onClick={onStoryChange}
+                          selected={activeStory === 'achievements'}
+                          data-story='achievements'
+                          text='Достижения'
+                        >
+                          <Icon28GiftOutline />
                         </TabbarItem>
                       </Tabbar>
                     )
@@ -638,7 +668,7 @@ const Example = () => {
                       <Group>
                         <Gradient className='profile-pets__container'>
                           <Avatar
-                            src='/src/img/mops.jpg'
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh3mH__HIyWWCM2_QvomVyApionM8fjuR7jQ&usqp=CAU'
                             size={196}
                             className='profile-pets__avatar'
                           />
@@ -703,7 +733,7 @@ const Example = () => {
 
                   <View id='searchPair' activePanel='searchPair'>
                     <Panel id='searchPair'>
-                      <PanelHeader before={<PanelHeaderBack />}>
+                      <PanelHeader>
                         Приложение для поиска пары для собаки
                       </PanelHeader>
                       <Group>
@@ -828,51 +858,156 @@ const Example = () => {
                             </CardGrid>
                           </SplitCol>
                         </SplitLayout>
+
+                        <SplitLayout>
+                          <SplitCol>
+                            <CardGrid
+                              className='search-pair__cardGrid'
+                              size='l'
+                              style={{ justifyContent: 'center' }}
+                            >
+                              <ContentCard
+                                onClick={() => setActiveStory('PetsProfile')}
+                                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpW5DpTluJnk2SjMfJJAr2QRAbWseBK4FpLg&usqp=CAU'
+                                // subtitle='unsplash'
+                                header='Кличка питомца'
+                                text='Порода'
+                                height='200'
+                                maxHeight={200}
+                              />
+                            </CardGrid>
+                          </SplitCol>
+                          <SplitCol>
+                            <Spinner
+                              size='large'
+                              style={{ margin: '98px 0' }}
+                            />
+                          </SplitCol>
+                          <SplitCol>
+                            <CardGrid
+                              size='l'
+                              style={{ justifyContent: 'center' }}
+                            >
+                              <ContentCard
+                                onClick={() => setActiveStory('PetsProfile')}
+                                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWP67s3CeCfOU-K4X1cWH2ERcmU5i37qgRyQ&usqp=CAU'
+                                // subtitle='unsplash'
+                                header='Кличка питомца'
+                                text='Порода'
+                                height='200'
+                                maxHeight={200}
+                              />
+                            </CardGrid>
+                          </SplitCol>
+                        </SplitLayout>
+
+                        <SplitLayout>
+                          <SplitCol>
+                            <CardGrid
+                              className='search-pair__cardGrid'
+                              size='l'
+                              style={{ justifyContent: 'center' }}
+                            >
+                              <ContentCard
+                                onClick={() => setActiveStory('PetsProfile')}
+                                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6lokzEpii8LxMN_TBDo49CKzY0BdnNA3waA&usqp=CAU'
+                                // subtitle='unsplash'
+                                header='Кличка питомца'
+                                text='Порода'
+                                height='100%'
+                                maxHeight={200}
+                              />
+                            </CardGrid>
+                          </SplitCol>
+                          <SplitCol>
+                            <Spinner
+                              size='large'
+                              style={{ margin: '98px 0' }}
+                            />
+                          </SplitCol>
+                          <SplitCol>
+                            <CardGrid
+                              size='l'
+                              style={{ justifyContent: 'center' }}
+                            >
+                              <ContentCard
+                                onClick={() => setActiveStory('PetsProfile')}
+                                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQafluktfff0urOmX5GPO7zalxg_k9ayHxAqg&usqp=CAU'
+                                // subtitle='unsplash'
+                                header='Кличка питомца'
+                                text='Порода'
+                                height='200px'
+                                maxHeight={200}
+                              />
+                            </CardGrid>
+                          </SplitCol>
+                        </SplitLayout>
                       </Group>
                     </Panel>
                   </View>
 
-                  <View id='messages' activePanel='messages'>
-                    <Panel id='messages'>
-                      <PanelHeader before={<PanelHeaderBack />}>
-                        Сообщения
+                  <View id='achievements' activePanel='achievements'>
+                    <Panel id='achievements'>
+                      <PanelHeader>
+                        Они родились благодаря этому приложению
                       </PanelHeader>
-                      <Group style={{ height: '1000px' }}>
-                        <Placeholder
-                          icon={
-                            <Icon28ServicesOutline width={56} height={56} />
-                          }
-                        ></Placeholder>
-                      </Group>
-                    </Panel>
-                  </View>
-
-                  <View id='clips' activePanel='clips'>
-                    <Panel id='clips'>
-                      <PanelHeader before={<PanelHeaderBack />}>
-                        Клипы
-                      </PanelHeader>
-                      <Group style={{ height: '1000px' }}>
-                        <Placeholder
-                          icon={
-                            <Icon28ServicesOutline width={56} height={56} />
-                          }
-                        ></Placeholder>
-                      </Group>
-                    </Panel>
-                  </View>
-
-                  <View id='profile' activePanel='profile'>
-                    <Panel id='profile'>
-                      <PanelHeader before={<PanelHeaderBack />}>
-                        Профиль
-                      </PanelHeader>
-                      <Group style={{ height: '1000px' }}>
-                        <Placeholder
-                          icon={
-                            <Icon28ServicesOutline width={56} height={56} />
-                          }
-                        ></Placeholder>
+                      <Group>
+                        <CardGrid size='s'>
+                          <ContentCard
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtA3xWbmkcOqJh-1v28oFNp09DTRwe-fdLcA&usqp=CAU'
+                            subtitle='unsplash'
+                            height='100%'
+                            maxHeight={150}
+                          />
+                          <ContentCard
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqit5q5OxihUNx9ulzKxntmYNGVmIISPhV4A&usqp=CAU'
+                            subtitle='unsplash'
+                            height='100%'
+                            maxHeight={150}
+                          />
+                          <ContentCard
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPDvde8AHXS82KFBMefzClMVnUugZw8MSUQQ&usqp=CAU'
+                            subtitle='unsplash'
+                            height='100%'
+                            maxHeight={150}
+                          />
+                          <ContentCard
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPDvde8AHXS82KFBMefzClMVnUugZw8MSUQQ&usqp=CAU'
+                            subtitle='unsplash'
+                            height='100%'
+                            maxHeight={150}
+                          />
+                          <ContentCard
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp998sdoVlOZxqtdrniTJ9MjAE5_ZVRzPgmQ&usqp=CAU'
+                            subtitle='unsplash'
+                            height='100%'
+                            maxHeight={150}
+                          />
+                          <ContentCard
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV9z6EYBO9408RivuOwyfxTbgDJFge5xah1A&usqp=CAU'
+                            subtitle='unsplash'
+                            height='100%'
+                            maxHeight={150}
+                          />
+                          <ContentCard
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOWhKHlacTbKJn59j69sjtOjyacs7nzVEGrQ&usqp=CAU'
+                            subtitle='unsplash'
+                            height='100%'
+                            maxHeight={150}
+                          />
+                          <ContentCard
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtntmg9J7NaLjd8srhxkKN42DnIgaHl8Y4fQ&usqp=CAU'
+                            subtitle='unsplash'
+                            height='100%'
+                            maxHeight={150}
+                          />
+                          <ContentCard
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_cfsLMr2RfXwP4wzzdAil-Aes5t8-BFhvtg&usqp=CAU'
+                            subtitle='unsplash'
+                            height='100%'
+                            maxHeight={150}
+                          />
+                        </CardGrid>
                       </Group>
                     </Panel>
                   </View>
