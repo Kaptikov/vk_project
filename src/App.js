@@ -955,55 +955,55 @@ const Example = () => {
                         <CardGrid size='s'>
                           <ContentCard
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtA3xWbmkcOqJh-1v28oFNp09DTRwe-fdLcA&usqp=CAU'
-                            subtitle='unsplash'
+                            subtitle='Имя щенка'
                             height='100%'
                             maxHeight={150}
                           />
                           <ContentCard
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqit5q5OxihUNx9ulzKxntmYNGVmIISPhV4A&usqp=CAU'
-                            subtitle='unsplash'
+                            subtitle='Имя щенка'
                             height='100%'
                             maxHeight={150}
                           />
                           <ContentCard
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPDvde8AHXS82KFBMefzClMVnUugZw8MSUQQ&usqp=CAU'
-                            subtitle='unsplash'
+                            subtitle='Имя щенка'
                             height='100%'
                             maxHeight={150}
                           />
                           <ContentCard
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPDvde8AHXS82KFBMefzClMVnUugZw8MSUQQ&usqp=CAU'
-                            subtitle='unsplash'
+                            subtitle='Имя щенка'
                             height='100%'
                             maxHeight={150}
                           />
                           <ContentCard
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp998sdoVlOZxqtdrniTJ9MjAE5_ZVRzPgmQ&usqp=CAU'
-                            subtitle='unsplash'
+                            subtitle='Имя щенка'
                             height='100%'
                             maxHeight={150}
                           />
                           <ContentCard
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV9z6EYBO9408RivuOwyfxTbgDJFge5xah1A&usqp=CAU'
-                            subtitle='unsplash'
+                            subtitle='Имя щенка'
                             height='100%'
                             maxHeight={150}
                           />
                           <ContentCard
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOWhKHlacTbKJn59j69sjtOjyacs7nzVEGrQ&usqp=CAU'
-                            subtitle='unsplash'
+                            subtitle='Имя щенка'
                             height='100%'
                             maxHeight={150}
                           />
                           <ContentCard
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtntmg9J7NaLjd8srhxkKN42DnIgaHl8Y4fQ&usqp=CAU'
-                            subtitle='unsplash'
+                            subtitle='Имя щенка'
                             height='100%'
                             maxHeight={150}
                           />
                           <ContentCard
                             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_cfsLMr2RfXwP4wzzdAil-Aes5t8-BFhvtg&usqp=CAU'
-                            subtitle='unsplash'
+                            subtitle='Имя щенка'
                             height='100%'
                             maxHeight={150}
                           />
