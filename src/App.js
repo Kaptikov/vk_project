@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './styles/style.css'
-import Main from './components/Main.jsx'
 import { useState, useEffect } from 'react'
 import {
   AdaptivityProvider,
@@ -84,6 +83,7 @@ import {
   Icon28ServicesOutline,
   Icon56MessageReadOutline,
   Icon28NewsfeedOutline,
+  Icon20Search,
   Icon24Camera,
   Icon12Add,
   Icon16Clear,
@@ -335,57 +335,6 @@ const Example = () => {
                       >
                         Найти пару
                       </Cell>
-                      <Cell
-                        disabled={activeStory === 'messages'}
-                        style={
-                          activeStory === 'messages'
-                            ? {
-                                backgroundColor:
-                                  'var(--vkui--color_background_secondary)',
-                                borderRadius: 8,
-                              }
-                            : {}
-                        }
-                        data-story='messages'
-                        onClick={onStoryChange}
-                        before={<Icon28ServicesOutline />}
-                      >
-                        messages
-                      </Cell>
-                      <Cell
-                        disabled={activeStory === 'clips'}
-                        style={
-                          activeStory === 'clips'
-                            ? {
-                                backgroundColor:
-                                  'var(--vkui--color_background_secondary)',
-                                borderRadius: 8,
-                              }
-                            : {}
-                        }
-                        data-story='clips'
-                        onClick={onStoryChange}
-                        before={<Icon28ServicesOutline />}
-                      >
-                        clips
-                      </Cell>
-                      <Cell
-                        disabled={activeStory === 'profile'}
-                        style={
-                          activeStory === 'profile'
-                            ? {
-                                backgroundColor:
-                                  'var(--vkui--color_background_secondary)',
-                                borderRadius: 8,
-                              }
-                            : {}
-                        }
-                        data-story='profile'
-                        onClick={onStoryChange}
-                        before={<Icon28ServicesOutline />}
-                      >
-                        profile
-                      </Cell>
                     </Group>
                   </Panel>
                 </SplitCol>
@@ -418,41 +367,12 @@ const Example = () => {
                         >
                           <Icon28ServicesOutline />
                         </TabbarItem>
-                        <TabbarItem
-                          onClick={onStoryChange}
-                          selected={activeStory === 'messages'}
-                          data-story='messages'
-                          indicator={
-                            <Counter size='s' mode='prominent'>
-                              12
-                            </Counter>
-                          }
-                          text='Сообщения'
-                        >
-                          <Icon28ServicesOutline />
-                        </TabbarItem>
-                        <TabbarItem
-                          onClick={onStoryChange}
-                          selected={activeStory === 'clips'}
-                          data-story='clips'
-                          text='Клипы'
-                        >
-                          <Icon28ServicesOutline />
-                        </TabbarItem>
-                        <TabbarItem
-                          onClick={onStoryChange}
-                          selected={activeStory === 'profile'}
-                          data-story='profile'
-                          indicator={<Badge mode='prominent' />}
-                          text='Профиль'
-                        >
-                          <Icon28ServicesOutline />
-                        </TabbarItem>
                       </Tabbar>
                     )
                   }
                 >
                   <View id='myPets' activePanel='myPets'>
+                    {/* <MyPets id='myPets'/> */}
                     <Panel id='myPets'>
                       <PanelHeader after={<Avatar size={16} />}>
                         Мои питомцы
@@ -461,28 +381,28 @@ const Example = () => {
                         <CardGrid size='s'>
                           <ContentCard
                             onClick={() => setActiveStory('PetsProfile')}
-                            src='https://images.unsplash.com/photo-1603988492906-4fb0fb251cf8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80'
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6KewlLe1vVy-7u5403IHsDE9q7VokltVStQ&usqp=CAU'
                             // subtitle='unsplash'
                             header='Кличка питомца'
-                            text='Порода'
+                            text='Пекинес'
                             height='100%'
                             maxHeight={200}
                           />
                           <ContentCard
                             onClick={() => setActiveStory('PetsProfile')}
-                            src='https://images.unsplash.com/photo-1603988492906-4fb0fb251cf8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80'
+                            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh3mH__HIyWWCM2_QvomVyApionM8fjuR7jQ&usqp=CAU'
                             // subtitle='unsplash'
                             header='Кличка питомца'
-                            text='Порода'
+                            text='Мопс'
                             height='100%'
                             maxHeight={200}
                           />
                           <ContentCard
                             onClick={() => setActiveStory('PetsProfile')}
-                            src='https://images.unsplash.com/photo-1603988492906-4fb0fb251cf8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80'
+                            src='https://sobakovod.club/uploads/posts/2022-02/1643955998_24-sobakovod-club-p-sobaki-nemetskaya-ovcharka-prikolnie-62.jpg'
                             // subtitle='unsplash'
                             header='Кличка питомца'
-                            text='Порода'
+                            text='Овчарка'
                             height='100%'
                             maxHeight={200}
                           />
@@ -860,7 +780,7 @@ const Example = () => {
                           </FormItem>
 
                           <FormItem>
-                            <Button size='l' stretched>
+                            <Button after={<Icon20Search />} size='l' stretched>
                               Найти
                             </Button>
                           </FormItem>
@@ -871,12 +791,18 @@ const Example = () => {
                           <SplitCol>
                             <CardGrid
                               className='search-pair__cardGrid'
-                              size='m'
+                              size='l'
                               style={{ justifyContent: 'center' }}
                             >
-                              <Card mode='shadow'>
-                                <div style={{ height: 196 }} />
-                              </Card>
+                              <ContentCard
+                                onClick={() => setActiveStory('PetsProfile')}
+                                src='https://sobakovod.club/uploads/posts/2022-02/1643955998_24-sobakovod-club-p-sobaki-nemetskaya-ovcharka-prikolnie-62.jpg'
+                                // subtitle='unsplash'
+                                header='Кличка питомца'
+                                text='Порода'
+                                height='100%'
+                                maxHeight={200}
+                              />
                             </CardGrid>
                           </SplitCol>
                           <SplitCol>
@@ -887,12 +813,18 @@ const Example = () => {
                           </SplitCol>
                           <SplitCol>
                             <CardGrid
-                              size='m'
+                              size='l'
                               style={{ justifyContent: 'center' }}
                             >
-                              <Card mode='shadow'>
-                                <div style={{ height: 196 }} />
-                              </Card>
+                              <ContentCard
+                                onClick={() => setActiveStory('PetsProfile')}
+                                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3qaXADTqTZbjJVNJLKoWNTPKESaxGdvNLdA&usqp=CAU'
+                                // subtitle='unsplash'
+                                header='Кличка питомца'
+                                text='Порода'
+                                height='100%'
+                                maxHeight={200}
+                              />
                             </CardGrid>
                           </SplitCol>
                         </SplitLayout>
