@@ -111,6 +111,7 @@ const Example = () => {
   // const [activePanel, setActivePanel] = useState('panel1')
   const [modal, setModal] = React.useState(null)
   const [value2, setValue2] = useState(0.2)
+  const [disabled, setDisabled] = useState(false)
   // const [popout, setPopout] = React.useState(null)
 
   const textInput = React.createRef()
@@ -515,10 +516,10 @@ const Example = () => {
                       </PanelHeader>
                       <Group>
                         <FormLayout>
+                          <FormItem top='Имя питомца'>
+                            <Input />
+                          </FormItem>
                           <FormLayoutGroup mode='horizontal'>
-                            <FormItem top='Имя питомца'>
-                              <Input />
-                            </FormItem>
                             <FormItem top='Вид животного'>
                               <Select
                                 placeholder='Выберите вид'
@@ -535,7 +536,27 @@ const Example = () => {
                               />
                             </FormItem>
                             <FormItem top='Порода'>
-                              <Input />
+                              <Select
+                                placeholder='Выберите породу'
+                                options={[
+                                  {
+                                    value: '0',
+                                    label: 'Овчарка',
+                                  },
+                                  {
+                                    value: '1',
+                                    label: 'Мопс',
+                                  },
+                                  {
+                                    value: '2',
+                                    label: 'Пекинес',
+                                  },
+                                  {
+                                    value: '3',
+                                    label: 'Другие',
+                                  },
+                                ]}
+                              />
                             </FormItem>
                           </FormLayoutGroup>
 
@@ -564,7 +585,14 @@ const Example = () => {
                               dayPlaceholder='ДД'
                               monthPlaceholder='ММММ'
                               yearPlaceholder='ГГГГ'
+                              disabled={disabled}
                             />
+                            <Checkbox
+                              checked={disabled}
+                              onChange={e => setDisabled(e.target.checked)}
+                            >
+                              Не знаю
+                            </Checkbox>
                           </FormItem>
 
                           <FormItem top='Тип шерсти'>
@@ -606,23 +634,53 @@ const Example = () => {
 
                           <FormItem top='Происхождение'>
                             <Select
-                              placeholder='Выберите происхождение'
+                              placeholder='Выберите Происхождение'
                               options={[
                                 {
                                   value: '0',
-                                  label: '',
+                                  label: 'Подобрал на улице',
                                 },
                                 {
                                   value: '1',
-                                  label: 'Короткая шерсть',
+                                  label: 'Купил',
                                 },
                                 {
                                   value: '2',
-                                  label: 'Средняя шерсть',
+                                  label: 'Приют',
                                 },
                                 {
                                   value: '3',
-                                  label: 'Длинная шерсть',
+                                  label: 'Взял у знакомых',
+                                },
+                              ]}
+                            />
+                          </FormItem>
+                          <FormItem>
+                            <Select
+                              placeholder='Место содержания'
+                              options={[
+                                {
+                                  value: '0',
+                                  label: 'В городе',
+                                },
+                                {
+                                  value: '1',
+                                  label: 'За городом',
+                                },
+                              ]}
+                            />
+                          </FormItem>
+                          <FormItem>
+                            <Select
+                              placeholder='Условия содержания'
+                              options={[
+                                {
+                                  value: '0',
+                                  label: 'На улице',
+                                },
+                                {
+                                  value: '1',
+                                  label: 'В помещении',
                                 },
                               ]}
                             />
@@ -636,12 +694,6 @@ const Example = () => {
                               Открыть галерею
                             </File>
                           </FormItem>
-                          <FormItem top='Описание'>
-                            <Textarea />
-                          </FormItem>
-                          <Checkbox>
-                            Согласен со всем <Link>этим</Link>
-                          </Checkbox>
                           <FormItem>
                             <Button size='l' stretched>
                               Добавить
