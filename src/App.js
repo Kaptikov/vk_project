@@ -110,7 +110,7 @@ const Example = () => {
   // const [panel, setPanel] = React.useState(panels[0])
   // const [activePanel, setActivePanel] = useState('panel1')
   const [modal, setModal] = React.useState(null)
-  const [value2, setValue2] = useState(0.2)
+  const [value2, setValue2] = useState(1)
   const [disabled, setDisabled] = useState(false)
   // const [popout, setPopout] = React.useState(null)
 
@@ -206,64 +206,64 @@ const Example = () => {
   //     console.log(error)
   //   })
 
-  bridge
-    .send('VKWebAppGetAuthToken', {
-      app_id: 51495131,
-      scope: 'friends,status,photos',
-    })
-    .then(data => {
-      let userId = ''
-      if (data.access_token) {
-        bridge
-          .send('VKWebAppGetLaunchParams')
-          .then(data => {
-            if (data.vk_app_id) {
-              let userId = data.vk_user_id.toString()
-              const params = window.location.search.slice(1)
-              bridge
-                .send('VKWebAppCallAPIMethod', {
-                  method: 'photos.createAlbum',
-                  params: {
-                    title: 'AnimalsPair',
-                    v: '5.131',
-                    access_token: data.access_token,
-                  },
-                })
-                .then(data => {
-                  if (data.response) {
-                    console.log(data.response)
-                  }
-                })
-                .catch(error => {
-                  // Ошибка
-                  console.log(error)
-                })
-              fetch('http://localhost:3005/api/check-user', {
-                method: 'POST', // или 'PUT'
-                body: JSON.stringify({ code: params, id: userId }), // данные могут быть 'строкой' или {объектом}!
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Access-Control-Allow-Origin': '*',
-                },
-              })
-                .then(response => {
-                  return response.json()
-                })
-                .then(data => {
-                  console.log(data)
-                })
-            }
-          })
-          .catch(error => {
-            // Ошибка
-            console.log(error)
-          })
-      }
-    })
-    .catch(error => {
-      // Ошибка
-      console.log(error)
-    })
+  // bridge
+  //   .send('VKWebAppGetAuthToken', {
+  //     app_id: 51495131,
+  //     scope: 'friends,status,photos',
+  //   })
+  //   .then(data => {
+  //     let userId = ''
+  //     if (data.access_token) {
+  //       bridge
+  //         .send('VKWebAppGetLaunchParams')
+  //         .then(data => {
+  //           if (data.vk_app_id) {
+  //             let userId = data.vk_user_id.toString()
+  //             const params = window.location.search.slice(1)
+  //             bridge
+  //               .send('VKWebAppCallAPIMethod', {
+  //                 method: 'photos.createAlbum',
+  //                 params: {
+  //                   title: 'AnimalsPair',
+  //                   v: '5.131',
+  //                   access_token: data.access_token,
+  //                 },
+  //               })
+  //               .then(data => {
+  //                 if (data.response) {
+  //                   console.log(data.response)
+  //                 }
+  //               })
+  //               .catch(error => {
+  //                 // Ошибка
+  //                 console.log(error)
+  //               })
+  //             fetch('http://localhost:3005/api/check-user', {
+  //               method: 'POST', // или 'PUT'
+  //               body: JSON.stringify({ code: params, id: userId }), // данные могут быть 'строкой' или {объектом}!
+  //               headers: {
+  //                 'Content-Type': 'application/json',
+  //                 'Access-Control-Allow-Origin': '*',
+  //               },
+  //             })
+  //               .then(response => {
+  //                 return response.json()
+  //               })
+  //               .then(data => {
+  //                 console.log(data)
+  //               })
+  //           }
+  //         })
+  //         .catch(error => {
+  //           // Ошибка
+  //           console.log(error)
+  //         })
+  //     }
+  //   })
+  //   .catch(error => {
+  //     // Ошибка
+  //     console.log(error)
+  //   })
 
   return (
     <ConfigProvider appearance='dark'>
@@ -857,6 +857,12 @@ const Example = () => {
                                 </IconButton>
                               }
                             />
+                          </FormItem>
+
+                          <FormItem>
+                            <Button size='l' stretched>
+                              Найти
+                            </Button>
                           </FormItem>
                         </FormLayout>
                       </Group>
